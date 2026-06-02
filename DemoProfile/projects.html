@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로젝트 - 김윤영</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">YY Profile</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="projects.html" class="active">프로젝트</a></li>
+                    <li><a href="contact.html">연락처</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 페이지 헤더 -->
+    <section class="page-header">
+        <h1>프로젝트</h1>
+        <p>성공적으로 진행한 프로젝트들</p>
+    </section>
+
+    <!-- 프로젝트 필터 -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">전체</button>
+                <button class="filter-btn" data-filter="web">웹</button>
+                <button class="filter-btn" data-filter="mobile">모바일</button>
+                <button class="filter-btn" data-filter="design">디자인</button>
+            </div>
+
+            <!-- 프로젝트 그리드 -->
+            <div class="projects-grid">
+                <!-- 프로젝트 1 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder">E-Commerce</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>온라인 쇼핑몰</h3>
+                        <p>풀스택 이커머스 플랫폼 개발</p>
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 2 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder">Portfolio</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>포트폴리오 웹사이트</h3>
+                        <p>개인 포트폴리오 사이트 개발</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 3 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <div class="project-placeholder">Mobile App</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>피트니스 트래킹 앱</h3>
+                        <p>운동 기록 및 분석 모바일 앱</p>
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 4 -->
+                <div class="project-card" data-category="design">
+                    <div class="project-image">
+                        <div class="project-placeholder">UI Design</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>소셜 미디어 앱 UI</h3>
+                        <p>모던 소셜 플랫폼 UI/UX 디자인</p>
+                        <div class="project-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 5 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder">CMS</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>콘텐츠 관리 시스템</h3>
+                        <p>기업용 CMS 플랫폼 개발</p>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Vue.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 6 -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-image">
+                        <div class="project-placeholder">Weather App</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>날씨 정보 앱</h3>
+                        <p>실시간 날씨 정보 제공 앱</p>
+                        <div class="project-tags">
+                            <span class="tag">Swift</span>
+                            <span class="tag">API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 7 -->
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div class="project-placeholder">Blog</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>기술 블로그</h3>
+                        <p>개인 기술 블로그 플랫폼</p>
+                        <div class="project-tags">
+                            <span class="tag">Next.js</span>
+                            <span class="tag">Markdown</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 8 -->
+                <div class="project-card" data-category="design">
+                    <div class="project-image">
+                        <div class="project-placeholder">Branding</div>
+                        <div class="project-overlay">
+                            <a href="#" class="view-btn">자세히 보기</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>스타트업 브랜딩</h3>
+                        <p>스타트업 브랜드 아이덴티티 디자인</p>
+                        <div class="project-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Photoshop</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>김윤영</h4>
+                    <p>웹 개발자 & 디지털 크리에이터</p>
+                </div>
+                <div class="footer-section">
+                    <h4>빠른 링크</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="about.html">소개</a></li>
+                        <li><a href="projects.html">프로젝트</a></li>
+                        <li><a href="contact.html">연락처</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>소셜</h4>
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank">GitHub</a></li>
+                        <li><a href="#" target="_blank">LinkedIn</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 김윤영. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

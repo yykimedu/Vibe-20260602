@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTML5 · CSS3 · JavaScript Demo</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #111827;
+      --text: #e6eef8;
+      --accent: #06b6d4;
+    }
+    [data-theme="light"] {
+      --bg: #f9fafb;
+      --card: #ffffff;
+      --text: #0f1724;
+      --accent: #0ea5a4;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg,var(--bg),#071126);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+    .container{
+      width:100%;
+      max-width:980px;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:20px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 18px rgba(2,6,23,0.6);
+      backdrop-filter: blur(6px);
+    }
+    header{margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
+    h1{margin:0;font-size:20px}
+    .controls{display:flex;gap:8px;align-items:center}
+    button{
+      background:var(--accent);
+      border:none;
+      color:white;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      transition:transform .12s ease, filter .12s;
+      box-shadow:0 6px 12px rgba(6,182,212,0.12);
+    }
+    button:active{transform:translateY(1px)}
+    #demoArea{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .box{
+      width:120px;height:120px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:14px;
+      color:var(--text);
+      background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.03);
+      transition:transform .35s ease, box-shadow .35s;
+      position:relative;
+    }
+    .box.jump{transform:translateY(-12px); box-shadow:0 20px 30px rgba(2,6,23,0.5)}
+    .sparkle{width:10px;height:10px;border-radius:50%;position:absolute;opacity:0.8;transform:scale(0);animation: pop 700ms ease forwards}
+    @keyframes pop {to {transform:scale(1.8); opacity:0}}
+    footer{font-size:13px;color:rgba(255,255,255,0.6); margin-top:12px}
+    @media (max-width:880px){.container{grid-template-columns:1fr; padding:0}}
+    .clock{font-size:32px; font-weight:800}
+    .right-col{display:flex;flex-direction:column;gap:12px}
+    input[type="range"]{width:100%}
+  </style>
+</head>
+<body>
+  <div class="container" id="app" data-theme="dark">
+    <div class="card">
+      <header>
+        <h1>HTML5 · CSS3 · JavaScript Demo</h1>
+        <div class="controls">
+          <button id="toggleTheme">테마 전환</button>
+          <button id="animateAll">애니메이션</button>
+        </div>
+      </header>
+      <section id="demoArea">
+        <div class="box" data-color="#06b6d4">클릭해 봐</div>
+        <div class="box" data-color="#f97316">색상 변경</div>
+        <div class="box" data-color="#f43f5e">애니메이션</div>
+        <div class="box" data-color="#8b5cf6">CSS3</div>
+        <div class="box" data-color="#34d399">JS</div>
+      </section>
+      <footer>
+        <div id="message">버튼이나 박스를 클릭하여 기능을 확인하세요.</div>
+      </footer>
+    </div>
+
+    <aside class="right-col">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>현재 시간</strong>
+          <div class="clock" id="clock">--:--:--</div>
+        </div>
+        <div style="margin-top:8px">
+          <label>박스 크기</label>
+          <input type="range" id="sizeRange" min="80" max="220" value="120">
+        </div>
+      </div>
+
+      <div class="card">
+        <strong>무작위 문구</strong>
+        <p id="quote" style="margin:8px 0 0 0">여기를 눌러 새로운 문구를 불러오세요.</p>
+        <div style="margin-top:12px;display:flex;gap:8px">
+          <button id="newQuote">새 문구</button>
+          <button id="copyQuote">복사</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    (() => {
+      const app = document.getElementById('app');
+      const toggleTheme = document.getElementById('toggleTheme');
+      const animateAll = document.getElementById('animateAll');
+      const boxes = document.querySelectorAll('.box');
+      const message = document.getElementById('message');
+      const clock = document.getElementById('clock');
+      const sizeRange = document.getElementById('sizeRange');
+      const quoteEl = document.getElementById('quote');
+      const newQuoteBtn = document.getElementById('newQuote');
+      const copyQuoteBtn = document.getElementById('copyQuote');
+
+      const quotes = [
+        "작은 개선이 큰 차이를 만든다.",
+        "간결함은 궁극의 정교함이다.",
+        "코드는 문서화된 사고이다.",
+        "테스트는 신뢰의 기초이다.",
+        "오늘 배운 것을 내일 적용하라."
+      ];
+
+      function updateClock() {
+        const now = new Date();
+        clock.textContent = now.toLocaleTimeString();
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+
+      toggleTheme.addEventListener('click', () => {
+        const theme = app.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        app.setAttribute('data-theme', theme);
+        message.textContent = `테마가 ${theme} 모드로 변경되었습니다.`;
+      });
+
+      boxes.forEach(box => {
+        box.addEventListener('click', (e) => {
+          boxes.forEach(b => b.classList.remove('jump'));
+          box.classList.add('jump');
+          const color = box.getAttribute('data-color') || getComputedStyle(box).backgroundColor;
+          const sparkle = document.createElement('div');
+          sparkle.className = 'sparkle';
+          sparkle.style.background = color;
+          const rect = box.getBoundingClientRect();
+          sparkle.style.left = (rect.left + rect.width/2) + 'px';
+          sparkle.style.top = (rect.top + rect.height/4) + 'px';
+          document.body.appendChild(sparkle);
+          setTimeout(()=> sparkle.remove(), 700);
+          message.textContent = `박스 "${box.textContent}"가 클릭되었습니다.`;
+        });
+      });
+
+      animateAll.addEventListener('click', () => {
+        boxes.forEach((b,i) => {
+          setTimeout(()=> {
+            b.classList.add('jump');
+            setTimeout(()=> b.classList.remove('jump'), 600);
+          }, i * 120);
+        });
+      });
+
+      sizeRange.addEventListener('input', () => {
+        boxes.forEach(b => {
+          b.style.width = sizeRange.value + 'px';
+          b.style.height = sizeRange.value + 'px';
+        });
+      });
+
+      newQuoteBtn.addEventListener('click', () => {
+        const q = quotes[Math.floor(Math.random()*quotes.length)];
+        quoteEl.textContent = q;
+      });
+
+      copyQuoteBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(quoteEl.textContent);
+          message.textContent = '문구가 클립보드에 복사되었습니다.';
+        } catch(e) {
+          message.textContent = '복사에 실패했습니다.';
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

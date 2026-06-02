@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연락처 - 김윤영</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">YY Profile</div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="about.html">소개</a></li>
+                    <li><a href="projects.html">프로젝트</a></li>
+                    <li><a href="contact.html" class="active">연락처</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 페이지 헤더 -->
+    <section class="page-header">
+        <h1>연락처</h1>
+        <p>저에게 연락해주세요</p>
+    </section>
+
+    <!-- 메인 콘텐츠 -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <!-- 연락처 정보 -->
+                <div class="contact-info">
+                    <h2>연락 정보</h2>
+                    <div class="info-items">
+                        <div class="info-item">
+                            <div class="info-icon">📧</div>
+                            <div>
+                                <h3>이메일</h3>
+                                <p><a href="mailto:yoon.young@email.com">yoon.young@email.com</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📱</div>
+                            <div>
+                                <h3>전화</h3>
+                                <p><a href="tel:+821012345678">+82 10-1234-5678</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div>
+                                <h3>위치</h3>
+                                <p>서울시 강남구</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🔗</div>
+                            <div>
+                                <h3>온라인</h3>
+                                <div class="online-links">
+                                    <a href="#" target="_blank">GitHub</a>
+                                    <a href="#" target="_blank">LinkedIn</a>
+                                    <a href="#" target="_blank">Twitter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 문의 폼 -->
+                <div class="contact-form-wrapper">
+                    <h2>메시지 보내기</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">이름</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">제목</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">메시지</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">메시지 보내기</button>
+                    </form>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </div>
+
+            <!-- 소셜 미디어 -->
+            <div class="social-section">
+                <h2>소셜 미디어 팔로우</h2>
+                <div class="social-grid">
+                    <a href="#" class="social-box" target="_blank">
+                        <span class="social-icon">f</span>
+                        <p>Facebook</p>
+                    </a>
+                    <a href="#" class="social-box" target="_blank">
+                        <span class="social-icon">in</span>
+                        <p>LinkedIn</p>
+                    </a>
+                    <a href="#" class="social-box" target="_blank">
+                        <span class="social-icon">G</span>
+                        <p>GitHub</p>
+                    </a>
+                    <a href="#" class="social-box" target="_blank">
+                        <span class="social-icon">tw</span>
+                        <p>Twitter</p>
+                    </a>
+                    <a href="#" class="social-box" target="_blank">
+                        <span class="social-icon">📷</span>
+                        <p>Instagram</p>
+                    </a>
+                    <a href="#" class="social-box" target="_blank">
+                        <span class="social-icon">Y</span>
+                        <p>YouTube</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 빠른 응답 -->
+            <div class="quick-response">
+                <h2>빠른 응답 안내</h2>
+                <p>일반적으로 24시간 이내에 회신합니다. 긴급한 문의는 전화로 연락 주세요.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>김윤영</h4>
+                    <p>웹 개발자 & 디지털 크리에이터</p>
+                </div>
+                <div class="footer-section">
+                    <h4>빠른 링크</h4>
+                    <ul>
+                        <li><a href="index.html">홈</a></li>
+                        <li><a href="about.html">소개</a></li>
+                        <li><a href="projects.html">프로젝트</a></li>
+                        <li><a href="contact.html">연락처</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>소셜</h4>
+                    <ul class="social-links">
+                        <li><a href="#" target="_blank">GitHub</a></li>
+                        <li><a href="#" target="_blank">LinkedIn</a></li>
+                        <li><a href="#" target="_blank">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 김윤영. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
